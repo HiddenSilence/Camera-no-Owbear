@@ -1,4 +1,5 @@
 {
+  "manifest_version": 1,
   "name": "OBS Cam no Owlbear",
   "version": "1.0.0",
   "target": ["ROOM"],

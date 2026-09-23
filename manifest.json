@@ -7,7 +7,7 @@
   "action": {
     "title": "Câmera Virtual OBS",
     "icon": "https://githubusercontent.com",
-    "popover": "index.html",
+    "popover": "./index.html",
     "width": 340,
     "height": 270
   }

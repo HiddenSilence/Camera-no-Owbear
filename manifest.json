@@ -2,11 +2,9 @@
   "manifest_version": 1,
   "name": "OBS Cam no Owlbear",
   "version": "1.0.0",
-  "icon": "https://githubusercontent.com",
   "action": {
     "title": "Câmera Virtual OBS",
-    "icon": "https://githubusercontent.com",
-    "popover": "https://github.io",
+    "popover": "./index.html",
     "width": 340,
     "height": 270
   }

@@ -1,0 +1,13 @@
+{
+  "name": "OBS Cam no Owlbear",
+  "version": "1.0.0",
+  "target": ["ROOM"],
+  "icon": "https://githubusercontent.com",
+  "action": {
+    "title": "Câmera Virtual OBS",
+    "icon": "https://githubusercontent.com",
+    "popover": "index.html",
+    "width": 340,
+    "height": 270
+  }
+}

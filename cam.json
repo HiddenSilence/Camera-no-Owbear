@@ -1,0 +1,13 @@
+{
+  "manifest_version": 1,
+  "name": "OBS Cam no Mapa",
+  "version": "1.0.0",
+  "icon": "https://cloudflare.com",
+  "action": {
+    "title": "Injetar Câmera no Mapa",
+    "icon": "https://cloudflare.com",
+    "popover": "./index.html",
+    "width": 300,
+    "height": 150
+  }
+}

@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#17171a" />
+    <title>Câmera OBS no Owlbear</title>
+  </head>
+  <body>
+    <main class="app">
+      <header>
+        <h1>Câmera OBS</h1>
+        <p class="subtitle">Controle a câmera e coloque a pré-visualização sobre o mapa.</p>
+      </header>
+
+      <section class="panel">
+        <label for="camera-select">Fonte de vídeo</label>
+        <select id="camera-select" disabled>
+          <option value="">Clique em "Listar câmeras"</option>
+        </select>
+
+        <div class="button-row">
+          <button id="refresh-btn" class="secondary">Listar câmeras</button>
+          <button id="start-btn" disabled>Iniciar câmera</button>
+        </div>
+
+        <button id="stop-btn" class="danger" disabled>Parar câmera</button>
+      </section>
+
+      <section class="preview-panel">
+        <div class="preview-head">
+          <span>Pré-visualização</span>
+          <span id="status" class="status">Desconectada</span>
+        </div>
+        <div class="video-frame">
+          <video id="camera-preview" autoplay playsinline muted></video>
+          <div id="empty-state" class="empty-state">
+            <span class="camera-icon">◉</span>
+            <strong>Nenhuma câmera ativa</strong>
+            <small>Escolha a OBS Virtual Camera e inicie a transmissão.</small>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel map-panel">
+        <div class="section-title">Câmera no mapa</div>
+        <p class="help-text">Crie uma moldura PROP que serve de âncora física para a câmera. Depois, a extensão mostra um vídeo sem janela cinza, alinhado com ela.</p>
+        <div class="button-row">
+          <button id="create-prop-btn">Criar moldura no mapa</button>
+          <button id="toggle-view-btn" class="secondary" disabled>Ativar para jogadores</button>
+        </div>
+        <div id="prop-status" class="mini-status">Somente o GM controla a criação e a exibição da câmera.</div>
+      </section>
+
+      <section class="info">
+        <strong>O que acontece nesta versão?</strong>
+        <p>
+          A moldura é um objeto compartilhado da cena. O GM controla quando a visualização fica ativa; jogadores não precisam clicar em nada. Nesta versão o sistema prepara a conexão ao vivo GM → jogadores com sinalização automática usando o metadata do jogador, identificada pela conexão do GM.
+        </p>
+      </section>
+    </main>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

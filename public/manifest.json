@@ -1,0 +1,24 @@
+{
+  "name": "Câmera OBS no Owlbear",
+  "version": "0.10.0",
+  "manifest_version": 1,
+  "description": "Transmite a OBS Virtual Camera do GM ao vivo para os jogadores e a exibe sobre uma moldura no mapa.",
+  "background_url": "/background.html",
+  "action": {
+    "title": "Câmera OBS",
+    "icon": "/icon.svg",
+    "popover": "/",
+    "width": 420,
+    "height": 620
+  },
+  "permissions": [
+    {
+      "name": "camera",
+      "reason": "Necessária para acessar a OBS Virtual Camera ou outra câmera escolhida pelo usuário."
+    },
+    {
+      "name": "autoplay",
+      "reason": "Necessária para reproduzir automaticamente a transmissão da câmera quando o GM ativá-la."
+    }
+  ]
+}

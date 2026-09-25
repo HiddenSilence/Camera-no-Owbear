@@ -17,44 +17,44 @@ concurrency:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
 
     steps:
-      - name: Baixar código
-        uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v7
 
-      - name: Instalar Node.js
-        uses: actions/setup-node@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
         with:
-          node-version: 20
-          cache: npm
+          node-version: '24'
+          package-manager-cache: false
 
-      - name: Instalar dependências
+      - name: Install dependencies
         run: npm install
 
-      - name: Fazer build
+      - name: Build
         run: npm run build
 
-      - name: Preparar manifest
+      - name: Prepare production manifest
         run: node scripts/prepare-pages.mjs
 
-      - name: Configurar GitHub Pages
+      - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
 
-      - name: Enviar arquivos para Pages
-        uses: actions/upload-pages-artifact@v3
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v4
         with:
-          path: ./dist
+          path: './dist'
 
   deploy:
     needs: build
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
 
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
-      - name: Publicar no GitHub Pages
+      - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4

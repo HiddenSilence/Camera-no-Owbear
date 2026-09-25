@@ -2,6 +2,7 @@ import OBR from "@owlbear-rodeo/sdk";
 
 const CAMERA_PROP_KEY = "hiddenSilence.cameraNoOwbear";
 const MODAL_ID = `${CAMERA_PROP_KEY}/overlay`;
+const OVERLAY_URL = new URL("../overlay.html", import.meta.url).href;
 let modalOpen = false;
 let syncing = false;
 
@@ -23,7 +24,7 @@ async function syncViewer() {
     if (enabled && !modalOpen) {
       await OBR.modal.open({
         id: MODAL_ID,
-        url: "/overlay.html",
+        url: OVERLAY_URL,
         fullScreen: true,
         hideBackdrop: true,
         hidePaper: true,

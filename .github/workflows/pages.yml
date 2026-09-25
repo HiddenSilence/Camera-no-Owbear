@@ -2,7 +2,8 @@ name: Deploy Owlbear Extension to GitHub Pages
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main
   workflow_dispatch:
 
 permissions:
@@ -17,39 +18,43 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout
-        uses: actions/checkout@v6
+      - name: Baixar código
+        uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v7
+      - name: Instalar Node.js
+        uses: actions/setup-node@v4
         with:
-          node-version: '20.x'
+          node-version: 20
+          cache: npm
 
-      - name: Install dependencies
+      - name: Instalar dependências
         run: npm install
 
-      - name: Build
+      - name: Fazer build
         run: npm run build
 
-      - name: Prepare production manifest
+      - name: Preparar manifest
         run: node scripts/prepare-pages.mjs
 
-      - name: Configure GitHub Pages
+      - name: Configurar GitHub Pages
         uses: actions/configure-pages@v5
 
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v4
+      - name: Enviar arquivos para Pages
+        uses: actions/upload-pages-artifact@v3
         with:
-          path: './dist'
+          path: ./dist
 
   deploy:
     needs: build
     runs-on: ubuntu-latest
+
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
+
     steps:
-      - name: Deploy to GitHub Pages
+      - name: Publicar no GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
